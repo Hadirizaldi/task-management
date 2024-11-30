@@ -12,5 +12,7 @@ $(function() {
 
     let user = new User(inputUsername);
     user.save();
+
+    if(user.success) window.location.href = "/public/signin.html";
   });
 })

@@ -17,6 +17,7 @@ class User {
 
   save() {
     UserStorage.save(this);
+    this.success = true;
   }
 }
 
