@@ -14,6 +14,18 @@ class User {
   static getAll() {
     return UserStorage.getAll();
   }
+  
+  static signIn(username) {
+    const users = this.getAll();
+    const foundUser = users.find(
+      user => user.username.trim().tolowerCase() === username.trim().tolowerCase()
+    );
+    if(foundUser) {
+      return {success: true, user: foundUser, message: "User found"};
+    } else {
+      return {success: false, message: "User not found"};
+    }
+  }
 
   save() {
     UserStorage.save(this);
