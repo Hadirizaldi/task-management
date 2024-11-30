@@ -2,7 +2,6 @@ import { User } from './User.js';
 
 
 $(function() {
-  console.log("================== signin ================");
 
   $('#userForm').submit(function(e) {    
     e.preventDefault();
