@@ -1,6 +1,5 @@
 import { User } from './User.js';
 
-
 $(function() {
 
   $('#userForm').submit(function(e) {    
