@@ -10,11 +10,16 @@ class Task {
     this.id = generateId('task');
     this.name = taskName;
     this.priority = priority;
-    this.project = project
+    this.project = project;
+    this.isCompleted = false;
   }
 
   static save(task) {
     TaskStorage.save(task);
+    return {
+      success: true,
+      message: "Task saved successfully"
+    }
   }
 
   static getAll() {

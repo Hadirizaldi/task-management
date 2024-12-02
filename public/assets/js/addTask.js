@@ -15,7 +15,12 @@ $(function () {
       }
 
       const task = new Task(taskName, priority, selectedProject);
-      Task.save(task);
+      const result = Task.save(task);
+      if(result.success) {
+        alert(result.message);
+      } else {
+        console.log('gagal simpan task');
+      }
 
     } catch (error) {
       alert(error.message);
