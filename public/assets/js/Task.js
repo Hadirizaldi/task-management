@@ -12,6 +12,7 @@ class Task {
     this.priority = priority;
     this.project = project;
     this.isCompleted = false;
+    this.createdAt = new Date();
   }
 
   static save(task) {
