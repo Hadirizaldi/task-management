@@ -34,6 +34,14 @@ class Task {
       message: "Task deleted successfully"
     }
   }
+
+  static updateCompleted(taskId) {
+    TaskStorage.updateStatus(taskId);
+    return {
+      success: true,
+      message: "Task completed successfully"
+    }
+  }
 }
 
 const TaskStorage = {
@@ -46,6 +54,17 @@ const TaskStorage = {
   delete: (taskId) => {
     const tasks = TaskStorage.getAll();
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+  },
+  updateStatus: (taskId) => {
+    const tasks = TaskStorage.getAll();
+    const updatedTasks = tasks.map((task) => {
+      if(task.id === taskId) {
+        return {...task, isCompleted: true}
+      } else {
+        return task
+      }
+    })
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 }
