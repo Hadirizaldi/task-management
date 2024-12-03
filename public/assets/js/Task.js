@@ -26,6 +26,14 @@ class Task {
   static getAll() {
     return TaskStorage.getAll();
   }
+
+  static delete(taskId) {
+    TaskStorage.delete(taskId);
+    return {
+      success: true,
+      message: "Task deleted successfully"
+    }
+  }
 }
 
 const TaskStorage = {
@@ -34,6 +42,11 @@ const TaskStorage = {
     const tasks = TaskStorage.getAll();
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+  },
+  delete: (taskId) => {
+    const tasks = TaskStorage.getAll();
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 }
 

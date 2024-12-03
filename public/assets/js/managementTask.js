@@ -44,7 +44,7 @@ $(function () {
       }
 
       const taskElement = $(`
-          <div class="flex justify-between bg-white p-5 w-full rounded-3xl">
+          <div class="flex justify-between bg-white p-5 w-full rounded-3xl" data-id="${task.id}">
             <div class="task-card flex flex-col gap-5">
                 <div class="flex gap-3 items-center">
                     <div class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[${backgroundColor}] rounded-full">
@@ -96,7 +96,7 @@ $(function () {
                 </div>
             </div>
             <div class="flex flex-row items-center gap-x-3">
-                <a href="#" class="my-auto font-semibold text-taskia-red border border-taskia-red p-[12px_20px] h-12 rounded-full">Delete</a>
+                <a href="#" id="button-delete-task" class="my-auto font-semibold text-taskia-red border border-taskia-red p-[12px_20px] h-12 rounded-full">Delete</a>
                 <a href="#" class="flex gap-[10px] justify-center items-center text-white p-[12px_20px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">Complete</a>
             </div>
           </div>
@@ -107,4 +107,27 @@ $(function () {
 
     $('#taskWrapper').append(fragment);
   }
+
+  $('#taskWrapper').on('click', '#button-delete-task', function (e) {
+    e.preventDefault();
+
+    const taskElement = $(this).closest('[data-id]');
+    const taskId = taskElement.attr('data-id');
+
+    if(confirm('Are you sure you want to delete this task?')) {
+      const result = Task.delete(taskId);
+      if(result.success) {
+        alert(result.message);
+      }
+
+      const remainingTasks = Task.getAll();
+      if (remainingTasks.length === 0) {
+        $('#taskWrapper').hide();
+        $('#taskWrapperEmpty').show();
+      }
+    }
+    
+
+});
+
 })
