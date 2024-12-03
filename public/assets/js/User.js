@@ -1,14 +1,10 @@
+import { generateId } from './utils/function.js';
+
 class User {
 
   constructor(username) {
-    this.id = this.generateId();
+    this.id = generateId();
     this.username = username;
-  }
-
-  generateId(prefix = 'user') {
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).substring(2, 9);
-    return `${prefix}-${timestamp}-${random}`;
   }
 
   static getAll() {
