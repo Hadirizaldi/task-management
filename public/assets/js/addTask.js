@@ -1,4 +1,7 @@
 import { Task } from './Task.js';
+import { User } from './User.js';
+
+const userId = User.getCurrentUser().id;
 
 $(function () {  
   $('#taskForm').submit(function (e) {
@@ -14,7 +17,7 @@ $(function () {
         return;
       }
 
-      const task = new Task(taskName, priority, selectedProject);
+      const task = new Task(taskName, priority, selectedProject, userId);
       const result = Task.save(task);
       if(result.success) {
         alert(result.message);

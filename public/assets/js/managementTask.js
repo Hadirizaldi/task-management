@@ -2,8 +2,12 @@ import { User } from './User.js';
 import { Task } from './Task.js';
 import { formatedDate, capitalize } from './utils/function.js';
 
+const userId = User.getCurrentUser().id;
+const username = capitalize(User.getCurrentUser().username);
+
 function renderTasks() {
-  const tasks = Task.getAll();
+  // const tasks = Task.getAll();
+  const tasks = Task.getAllByUserId(userId);
   console.log(tasks);
   
   $('#taskWrapper').empty();
@@ -98,11 +102,6 @@ function getTaskElement(task) {
   `);
 }
 
-function showUsername() {
-  const username = capitalize(User.getCurrentUser().username);
-  return username
-}
-
 // DOM start
 $(function () {
   renderTasks();
@@ -136,5 +135,5 @@ $(function () {
     }
   })
 
-  $('#username-show').text(showUsername());
+  $('#username-show').text(username);
 })
