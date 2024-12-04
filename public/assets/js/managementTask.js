@@ -62,7 +62,7 @@ function getTaskElement(task) {
             <img src="${iconSrc}" alt="${iconAlt}">
           </div>
           <div class="flex flex-col">
-            <p class="font-bold text-lg leading-[27px]">${task.name}</p>
+            <p class="font-bold text-lg leading-[27px]">${capitalize(task.name)}</p>
             <p class="text-sm leading-[21px] text-taskia-grey">Created at ${formatedDate(task.createdAt)}</p>
           </div>
         </div>

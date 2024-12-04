@@ -22,7 +22,7 @@ $(function () {
         return;
       }
 
-      const task = new Task(taskName, priority, selectedProject, userId);
+      const task = new Task(taskName.toLowerCase(), priority, selectedProject, userId);
       const result = Task.save(task);
       if(result.success) {
         alert(result.message);
