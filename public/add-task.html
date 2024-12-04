@@ -12,75 +12,7 @@
 
 <body class="text-taskia-black font-poppins">
     <section id="Dashboard" class="flex">
-        <div id="Sidebar"
-            class="w-[280px] flex flex-col gap-[30px] p-[30px] shrink-0 h-screen overflow-y-scroll no-scrollbar">
-            <div class="flex justify-center">
-                <img src="assets/img/logo.svg" alt="logo">
-            </div>
-            <div class="general-menu flex flex-col gap-[18px]">
-                <h3 class="font-semibold text-sm leading-[21px]">GENERAL</h3>
-                <a href="dashboard-overview.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/3dcube.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Overview</p>
-                </a>
-                <a href="dashboard-my-people.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/profile-2user.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">My People</p>
-                </a>
-                <a href="tasks.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full bg-taskia-light-orange drop-shadow-[0_10px_20px_rgba(255,216,141,0.50)]">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/note-favorite.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Manage Task</p>
-                </a>
-                <a href="dashboard-rewards.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/crown.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Rewards</p>
-                </a>
-                <a href="dashboard-ai-customs.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/hierarchy-square-3.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">AI Customs</p>
-                </a>
-            </div>
-            <hr class="text-taskia-background-grey">
-            <div class="general-menu flex flex-col gap-[18px]">
-                <h3 class="font-semibold text-sm leading-[21px]">OTHERS</h3>
-                <a href="dashboard-settings.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/setting-2.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Settings</p>
-                </a>
-                <a href="dashboard-help-center.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/message-question.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Help Center</p>
-                </a>
-                <a href="signin.html"
-                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
-                    <div class="w-6 h-6">
-                        <img src="assets/img/icons/forbidden-2.svg" alt="icon">
-                    </div>
-                    <p class="font-semibold">Logout</p>
-                </a>
-            </div>
-        </div>
+        <div id="container-sidebar"></div>
         <div id="Content"
             class="flex flex-col bg-taskia-background-grey rounded-l-[60px] w-full h-screen overflow-y-scroll p-[50px] gap-[30px]">
             <div id="header"></div>
@@ -123,8 +55,7 @@
                             </div>
                         </div>
                         <button
-                            class="flex gap-[10px] justify-center items-center text-white p-[12px_16px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey"
-                        >
+                            class="flex gap-[10px] justify-center items-center text-white p-[12px_16px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">
                             Save New Task
                         </button>
                     </div>
@@ -191,8 +122,11 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="assets/js/components/loadHeader.js"></script>
+    <script type="module" src="assets/js/components/loadSidebar.js"></script>
     <script type="module" src="assets/js/components/showUsername.js"></script>
     <script type="module" src="assets/js/addTask.js"></script>
 </body>
