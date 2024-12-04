@@ -1,6 +1,6 @@
 import { User } from './User.js';
 import { Task } from './Task.js';
-import { formatedDate } from './utils/function.js';
+import { formatedDate, capitalize } from './utils/function.js';
 
 function renderTasks() {
   const tasks = Task.getAll();
@@ -98,6 +98,11 @@ function getTaskElement(task) {
   `);
 }
 
+function showUsername() {
+  const username = capitalize(User.getCurrentUser().username);
+  return username
+}
+
 // DOM start
 $(function () {
   renderTasks();
@@ -131,4 +136,5 @@ $(function () {
     }
   })
 
+  $('#username-show').text(showUsername());
 })

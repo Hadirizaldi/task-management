@@ -19,3 +19,10 @@ export const formatedDate = (date) => {
 
   return formatter.format(dateObj);
 };
+
+export function capitalize(text) {
+  const result = text.split(' ');
+  return result
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
