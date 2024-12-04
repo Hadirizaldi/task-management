@@ -3,6 +3,11 @@ import { User } from './User.js';
 
 const userId = User.getCurrentUser().id;
 
+const resetValue = () => {
+  $('#taskName').val('');
+  $('#taskPriority').val('');
+}
+
 $(function () {  
   $('#taskForm').submit(function (e) {
     e.preventDefault();
@@ -21,6 +26,8 @@ $(function () {
       const result = Task.save(task);
       if(result.success) {
         alert(result.message);
+        resetValue()
+        window.location.href = "/public/tasks.html";
       } else {
         console.log('gagal simpan task');
       }

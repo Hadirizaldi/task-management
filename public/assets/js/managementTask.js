@@ -6,9 +6,7 @@ const userId = User.getCurrentUser().id;
 const username = capitalize(User.getCurrentUser().username);
 
 function renderTasks() {
-  // const tasks = Task.getAll();
   const tasks = Task.getAllByUserId(userId);
-  console.log(tasks);
   
   $('#taskWrapper').empty();
   toggleEmptyState(tasks);
