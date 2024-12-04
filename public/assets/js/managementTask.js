@@ -3,7 +3,6 @@ import { Task } from './Task.js';
 import { formatedDate, capitalize } from './utils/function.js';
 
 const userId = User.getCurrentUser().id;
-const username = capitalize(User.getCurrentUser().username);
 
 function renderTasks() {
   const tasks = Task.getAllByUserId(userId);
@@ -132,6 +131,4 @@ $(function () {
       }
     }
   })
-
-  $('#username-show').text(username);
 })
