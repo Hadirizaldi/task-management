@@ -2,7 +2,7 @@ import { generateId } from './utils/function.js';
 import { Priority } from './utils/Priority.js';
 
 class Task {
-  constructor(taskName, priority = Priority.LOW, project) {
+  constructor(taskName, priority = Priority.LOW, project, userId) {
     if (!Priority.isValid(priority)) {
       throw new Error(`Invalid priority value: ${priority}`);
     }
@@ -11,6 +11,7 @@ class Task {
     this.name = taskName;
     this.priority = priority;
     this.project = project;
+    this.userId = userId
     this.isCompleted = false;
     this.createdAt = new Date();
   }
@@ -25,6 +26,11 @@ class Task {
 
   static getAll() {
     return TaskStorage.getAll();
+  }
+
+  static getAllByUserId(userId) {
+    const tasks = TaskStorage.getAll();
+    return tasks.filter((task) => task.userId === userId);
   }
 
   static delete(taskId) {

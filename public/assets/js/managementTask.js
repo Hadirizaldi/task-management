@@ -1,10 +1,11 @@
 import { User } from './User.js';
 import { Task } from './Task.js';
-import { formatedDate } from './utils/function.js';
+import { formatedDate, capitalize } from './utils/function.js';
+
+const userId = User.getCurrentUser().id;
 
 function renderTasks() {
-  const tasks = Task.getAll();
-  console.log(tasks);
+  const tasks = Task.getAllByUserId(userId);
   
   $('#taskWrapper').empty();
   toggleEmptyState(tasks);
@@ -61,7 +62,7 @@ function getTaskElement(task) {
             <img src="${iconSrc}" alt="${iconAlt}">
           </div>
           <div class="flex flex-col">
-            <p class="font-bold text-lg leading-[27px]">${task.name}</p>
+            <p class="font-bold text-lg leading-[27px]">${capitalize(task.name)}</p>
             <p class="text-sm leading-[21px] text-taskia-grey">Created at ${formatedDate(task.createdAt)}</p>
           </div>
         </div>
@@ -130,5 +131,4 @@ $(function () {
       }
     }
   })
-
 })
